@@ -1,7 +1,10 @@
+import Main from "../components/Main"
 
 const Artists = () => {
   return (
-    <div>Artists</div>
+    <>
+      <Main type="artists"/>
+    </>
   )
 }
 

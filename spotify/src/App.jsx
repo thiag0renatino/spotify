@@ -4,7 +4,6 @@ import Artists from "./pages/Artists";
 import Artist from "./pages/Artist";
 import Songs from "./pages/Songs";
 import Song from "./pages/Song";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
