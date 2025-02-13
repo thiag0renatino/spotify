@@ -1,8 +1,7 @@
 import SingleItem from "./SingleItem";
 import PropTypes from "prop-types";
-import { artistArray } from "../assets/database/artists.js";
 
-const ItemList = ({ title, items }) => {
+const ItemList = ({ title, items, itemsArray }) => {
   return (
     <div className="item-list">
       <div className="item-list__header">
@@ -13,10 +12,10 @@ const ItemList = ({ title, items }) => {
       </div>
 
       <div className="item-list__container">
-        {artistArray
+        {itemsArray
           .filter((currentValue, index) => index < items)
           .map((currObj, index) => (
-            <SingleItem {...currObj} key={`${title}-${index}`} />
+            <SingleItem  {...currObj} key={`${title}-${index}`} />
           ))}
       </div>
     </div>
@@ -27,5 +26,6 @@ ItemList.propTypes = {
   title: PropTypes.string,
   items: PropTypes.number,
   id: PropTypes.number,
+  itemsArray: PropTypes.array
 };
 export default ItemList;
