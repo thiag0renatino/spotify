@@ -1,8 +1,7 @@
 import SingleItem from "./SingleItem";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-
-const ItemList = ({ title, items }) => {
+const ItemList = ({ title, items}) => {
   return (
     <div className="item-list">
       <div className="item-list__header">
@@ -13,36 +12,19 @@ const ItemList = ({ title, items }) => {
       </div>
 
       <div className="item-list__container">
-        {items === 5 ? (
-          <>
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-          </>
-        ) : (
-          <>
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-            <SingleItem />
-          </>
-        )}
+        {Array(items)
+          .fill()
+          .map((index) => (
+            <SingleItem key={`${title}-${index}`} />
+          ))}
       </div>
     </div>
   );
-  
 };
 
 ItemList.propTypes = {
-    title: PropTypes.string,
-    items: PropTypes.number,
-  };
+  title: PropTypes.string,
+  items: PropTypes.number,
+  id: PropTypes.number
+};
 export default ItemList;
