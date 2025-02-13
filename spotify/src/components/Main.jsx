@@ -7,14 +7,14 @@ const Main = () => {
     <div className="main">
       <ItemList
         title="Artistas"
-        items={5}
+        items={10}
         itemsArray={artistArray}
         path="/artists"
         idPath="artist"
       />
       <ItemList
         title="Músicas"
-        items={10}
+        items={20}
         itemsArray={songsArray}
         path="/songs"
         idPath="song"

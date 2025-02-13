@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SingleItem from "./SingleItem";
 import PropTypes from "prop-types";
 
@@ -6,9 +7,9 @@ const ItemList = ({ title, items, itemsArray, path, idPath }) => {
     <div className="item-list">
       <div className="item-list__header">
         <h2>{title} populares</h2>
-        <a className="item-list__link" href={path}>
+        <Link className="item-list__link" to={path}>
           <p>Mostrar tudo</p>
-        </a>
+        </Link>
       </div>
 
       <div className="item-list__container">
