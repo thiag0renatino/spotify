@@ -1,11 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const SingleItem = ( {name , image, artist}) => {
-
+const SingleItem = ({id, name, image, artist,idPath }) => {
   return (
-    <div className="single-item">
+    <a href={`${idPath}/${id}`} className="single-item">
       <div className="single-item__div-image-button">
         <div className="single-item__div-image">
           <img
@@ -22,18 +21,17 @@ const SingleItem = ( {name , image, artist}) => {
         <div className="single-item__2lines">
           <p className="single-item__title">{name}</p>
         </div>
-        <p className="single-item__type">
-            {artist ?? "Artista"}
-        </p>
+        <p className="single-item__type">{artist ?? "Artista"}</p>
       </div>
-    </div>
+    </a>
   );
 };
 SingleItem.propTypes = {
-    id: PropTypes.number,
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    banner: PropTypes.string,
-    artist: PropTypes.any
-}
+  id: PropTypes.number,
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  banner: PropTypes.string,
+  artist: PropTypes.any,
+  idPath: PropTypes.string
+};
 export default SingleItem;

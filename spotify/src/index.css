@@ -97,6 +97,7 @@ img {
   align-items: center;
   transition: background-color var(--transition-function)
     var(--transition-duration);
+  cursor: pointer;
 }
 
 .single-item:hover {
