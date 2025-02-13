@@ -10,10 +10,10 @@ const Artist = () => {
         className="artist__header"
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, var(--_shade), var(--_shade)), url()",
+            "linear-gradient(to bottom, var(--_shade), var(--_shade)), url(https://i.scdn.co/image/ab67618600001016b37fbcbd078cb239588df5d9)",
         }}
       >
-        <h2 className="title"></h2>
+        <h2 className="artist__title">Henrique & Juliano</h2>
       </div>
 
       <div className="artist__body">
@@ -23,7 +23,7 @@ const Artist = () => {
 
       <Link to="/song/1">
         <FontAwesomeIcon
-          className="single-item__icon single-item--artist"
+          className="single-item__icon single-item__icon--artist"
           icon={faCirclePlay}
         />
       </Link>
