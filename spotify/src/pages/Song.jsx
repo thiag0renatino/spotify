@@ -24,7 +24,7 @@ const Song = () => {
 
         <Player />
 
-        <div>
+        <div className="song__info">
           <p className="song__name">Última </p>
           <p>henrique & Juliano</p>
         </div>

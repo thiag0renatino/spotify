@@ -10,7 +10,7 @@ const Player = () => {
   return (
     <div className="player">
       <div className="player__controllers">
-        <Link to="/song/1">
+        <Link to="/song/2">
           <FontAwesomeIcon className="player__icon " icon={faBackwardStep} />
         </Link>
 
@@ -20,7 +20,7 @@ const Player = () => {
           icon={faCirclePlay}
         />
 
-        <Link to="/song/1">
+        <Link to="/song/3">
           <FontAwesomeIcon className="player__icon " icon={faForwardStep} />
         </Link>
       </div>

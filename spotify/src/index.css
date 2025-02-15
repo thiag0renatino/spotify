@@ -1,20 +1,24 @@
 :root {
-  --green-50: hsl(141, 75%, 90%);
-  --green-100: hsl(141, 75%, 85%);
-  --green-200: hsl(141, 75%, 70%);
-  --green-300: hsl(141, 75%, 60%);
-  --green-400: hsl(141, 75%, 50%);
-  --green-500: hsl(141, 75%, 45%);
-  --green-600: hsl(141, 75%, 35%);
-  --green-700: hsl(141, 75%, 25%);
-  --green-800: hsl(141, 75%, 15%);
-  --green-900: hsl(141, 75%, 10%);
-  --green-950: hsl(141, 75%, 5%);
-  --green-1000: hsl(141, 75%, 2.5%);
-  --green-1000-25: hsl(141, 75%, 2.5% / 25%);
+  --green-50: hsl(141deg 75% 90%);
+  --green-100: hsl(14deg 75% 85%);
+  --green-200: hsl(141deg 75% 70%);
+  --green-300: hsl(141deg 75% 60%);
+  --green-400: hsl(141deg 75% 50%);
+  --green-500: hsl(141deg 75% 45%);
+  --green-600: hsl(141deg 75% 35%);
+  --green-700: hsl(141deg 75% 25%);
+  --green-800: hsl(141deg 75% 15%);
+  --green-900: hsl(141deg 75% 10%);
+  --green-950: hsl(141deg 75% 5%);
+  --green-1000: hsl(141deg 75% 2.5%);
+  --green-1000-25: hsl(141deg 75% 2.5% / 25%);
 
   --transition-duration: 200ms;
   --transition-function: ease;
+
+  --border-radius-s: 5px;
+  --border-radius-m: 10px;
+  --border-radius-l: 15px;
 }
 
 * {
@@ -35,6 +39,7 @@ a {
 
 img {
   max-width: 100%;
+  display: block;
 }
 
 #root {
@@ -58,7 +63,7 @@ img {
 .main {
   padding: 20px;
   margin: 0 10px 10px;
-  border-radius: 15px;
+  border-radius: var(--border-radius-l);
   flex: 1;
   background-image: linear-gradient(
     to bottom,
@@ -93,7 +98,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-radius: 15px;
+  border-radius: var;
   align-items: center;
   transition: background-color var(--transition-function)
     var(--transition-duration);
@@ -177,7 +182,7 @@ img {
 }
 
 .artist {
-  border-radius: 15px;
+  border-radius: var(--border-radius-l);
   overflow: hidden;
   margin: 0 10px 10px 10px;
 }
@@ -221,8 +226,9 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
-  transition: background-color ease 200ms;
+  border-radius: var(--border-radius-s);
+  transition: background-color var(--transition-function)
+    var(--transition-duration);
 }
 
 .song-item:hover {
@@ -236,7 +242,7 @@ img {
 .song-item__image {
   width: 40px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: var(--border-radius-s);
 }
 
 .song-item__album {
@@ -260,4 +266,89 @@ img {
 .song-list__see-more:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.song {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  flex: 1;
+}
+
+.song__container {
+  background-image: linear-gradient(
+    to bottom,
+    var(--green-800),
+    var(--green-950)
+  );
+  margin: 0 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.song__image-container {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 0 25px 10px var(--green-1000-25);
+}
+
+.song__bar {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  place-items: center;
+  background-color: black;
+  color: white;
+  padding: 16px 25px;
+  gap: 15px;
+}
+
+.song__artist-image {
+  justify-self: start;
+  border-radius: var(--border-radius-s);
+  overflow: hidden;
+}
+
+.song__name {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.player {
+  justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.player__controllers {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.player__icon {
+  cursor: pointer;
+  transition-property: transform, color;
+  transition-timing-function: var(--transition-function);
+  transition-duration: var(--transition-duration);
+}
+
+.player__icon:hover {
+  transform: scale(105%);
+  color: var(--green-400);
+}
+
+.player__icon--play {
+  font-size: 35px;
+}
+
+.player__progress {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
