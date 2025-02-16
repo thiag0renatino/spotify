@@ -31,7 +31,7 @@ const Song = () => {
           />
         </Link>
 
-        <Player />
+        <Player duration={songObj.duration} />
 
         <div className="song__info">
           <p className="song__name">{songObj.name}</p>
