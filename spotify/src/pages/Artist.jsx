@@ -7,6 +7,7 @@ import { songsArray } from "../assets/database/songs";
 
 const Artist = () => {
   const { id } = useParams();
+  
   const artistObj = artistArray.filter(
     (currentArtistObj) => currentArtistObj.id === Number(id)
   )[0];
