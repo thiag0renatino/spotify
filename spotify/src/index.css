@@ -216,6 +216,27 @@ img {
   gap: 25px;
 }
 
+@media (max-width: 1260px) {
+  .artist__title {
+    font-size: 7.5vw;
+    line_height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .artist__title {
+    font-size: 36px;
+  }
+
+  .artist__header {
+    padding: 16px;
+  }
+
+  .artist__body {
+    padding: 25px 16px;
+  }
+}
+
 .song-list {
   display: flex;
   flex-direction: column;
@@ -229,6 +250,7 @@ img {
   border-radius: var(--border-radius-s);
   transition: background-color var(--transition-function)
     var(--transition-duration);
+  gap: 15px;
 }
 
 .song-item:hover {
