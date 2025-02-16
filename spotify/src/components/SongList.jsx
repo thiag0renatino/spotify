@@ -1,23 +1,22 @@
-import SongItem from "./SongItem"
+import SongItem from "./SongItem";
+import PropTypes from "prop-types";
 
-const SongList = () => {
+const SongList = ({ songsArray }) => {
   return (
     <div className="song-list">
-        <SongItem/>
-        <SongItem/>
-        <SongItem/>
-        <SongItem/>
-        <SongItem/>
+      {songsArray.map((currentSongObj) => (
+        <SongItem key={currentSongObj.id} {...currentSongObj} />
+      ))}
 
-
-
-
-
-        <div className="song-list__see-more">
-            <p>Ver mais</p>
-        </div>
+      <div className="song-list__see-more">
+        <p>Ver mais</p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SongList
+SongList.propTypes = {
+  songsArray: PropTypes.array,
+};
+
+export default SongList;
