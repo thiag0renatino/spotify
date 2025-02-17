@@ -6,20 +6,49 @@ import {
   faForwardStep,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
-import { useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { useRef, useState, useEffect } from "react";
+
+const formatTime = (timeInSeconds) => {
+  const minutes = Math.floor(timeInSeconds / 60)
+    .toString()
+    .padStart(2, "0");
+  const seconds = Math.floor(timeInSeconds - minutes * 60)
+  .toString()
+  .padStart(2,"0");
+
+  return `${minutes}:${seconds}`;
+};
 
 const Player = ({ duration, randomIdFromArtist, audio }) => {
-
   const audioPlayer = useRef();
 
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const playPause = () =>{
-    isPlaying ? audioPlayer.current.pause() : audioPlayer.current.play() 
-    
+  const [currentTime, setCurrentTime] = useState(formatTime(0));
+
+  const playPause = () => {
+    isPlaying ? audioPlayer.current.pause() : audioPlayer.current.play();
+
     setIsPlaying(!isPlaying);
+
+   
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (isPlaying) {
+        setCurrentTime(formatTime(audioPlayer.current.currentTime)) 
+      };
+      
+    }, 1000);
+  
+    return () => {
+      clearInterval(intervalId);
+    }
+  }, [isPlaying]) 
+  
+
 
   return (
     <div className="player">
@@ -41,7 +70,7 @@ const Player = ({ duration, randomIdFromArtist, audio }) => {
       </div>
 
       <div className="player__progress">
-        <p>00:00</p>
+        <p>{currentTime}</p>
 
         <div className="player__bar">
           <div className="player__bar-progress"></div>
@@ -53,11 +82,11 @@ const Player = ({ duration, randomIdFromArtist, audio }) => {
       </div>
     </div>
   );
-}
+};
 Player.propTypes = {
   duration: PropTypes.string,
-  randomIdFromArtist : PropTypes.number,
-  audio : PropTypes.audio
-}
+  randomIdFromArtist: PropTypes.number,
+  audio: PropTypes.audio,
+};
 
 export default Player;
