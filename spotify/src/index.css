@@ -392,7 +392,7 @@ img {
 }
 
 .player__bar-progress {
-  --_progress: 16.967245223782957%;
+  --_progress: 0%;
   height: 100%;
   width: var(--_progress);
   background-color: white;
